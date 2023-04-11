@@ -4,11 +4,6 @@ import random
 import functools
 
 class FastKNN:
-    X_train=None
-    y_train=None
-    k=-1
-    beta=-1
-    distant_tuple=[]
     def __init__(self, x,y,k,beta=5):
         self.X_train=x.copy(deep=False)
         self.y_train=y.copy(deep=False)
@@ -23,8 +18,8 @@ class FastKNN:
         for i in (x.columns):
             min_=self.X_train[i].min()
             max_=self.X_train[i].max()
-            lo= random.uniform(- (2**32), 2*min_-max_)
-            high=random.uniform(2*max_-min_, 2**32)
+            lo= random.uniform(- (2**32), min_-(1e3*(max_-min_)))
+            high=random.uniform(max_-(1e3*(max_-min_)), 2**32)
             self.distant_tuple.append(random.choice([lo,high]))
         
         # each value of train_list will be a list of index and distance

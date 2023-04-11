@@ -2,16 +2,13 @@ import numpy as np
 import pandas as pd 
 import random
 import functools
-from FastKNN import FastKNN
+from FastKNN.implementation.FastKNN import FastKNN
 class FastKNNpp:
-    k=-1
-    beta=-1
-    no_of_models=1
-    fast_knn_models=[]
     def __init__(self, x,y,k,beta=10,no_of_models=13,deep=True):
         self.k=k
         self.beta=beta
         self.no_of_models=no_of_models
+        self.fast_knn_models=[]
         self.X=x.copy(deep=deep)
         self.Y=y.copy(deep=deep)
         for i in range(no_of_models):
