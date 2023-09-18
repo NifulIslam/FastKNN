@@ -42,3 +42,5 @@ fastKNNpp=FastKNNpp(X_train,y_train,k=3,beta=10, no_of_models=5)
 y_pred=fastKNNpp.predict(X_test)
 ```
 A detailed example is given on the *FastKNN++_classification.ipynb* file
+
+[![DOI](https://zenodo.org/badge/624813756.svg)](https://zenodo.org/badge/latestdoi/624813756)
